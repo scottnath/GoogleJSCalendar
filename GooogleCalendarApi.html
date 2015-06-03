@@ -3,13 +3,14 @@
     <script type="text/javascript">
       // Your Client ID can be retrieved from your project in the Google
       // Developer Console, https://console.developers.google.com
-      var CLIENT_ID = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-xxxxxxxxxxxx';
+      var CLIENT_ID = '440501640847-1p0m9n4dscs4q4hi6otjlj2pud0ed6mi.apps.googleusercontent.com';
 
       // This quickstart only requires read-only scope, check
       // https://developers.google.com/google-apps/calendar/auth if you want to
       // request write scope.
       var SCOPES = ['https://www.googleapis.com/auth/calendar.readonly','https://www.googleapis.com/auth/calendar'];
 
+      var GCAL_ID = 'scottnath.com_egim4s6u6q9u672aqmlu79o444@group.calendar.google.com';
       /**
        * Check if current user has authorized this application.
        */
@@ -67,7 +68,7 @@
        */
       function listUpcomingEvents() {
         var request = gapi.client.calendar.events.list({
-          'calendarId': 'ui47bj43j9ovbvrqi03jbsmc68@group.calendar.google.com',
+          'calendarId': GCAL_ID,
           'timeMin': (new Date()).toISOString(),
           'showDeleted': false,
           'singleEvents': true,
@@ -148,7 +149,7 @@
 				},
 			
 			'attendees': [
-				{'email': 'eduardoduarte.83@gmail.com'},
+				{'email': 'scott@scottnath.com'},
 				],
 				'reminders': {
 				'useDefault': false,
@@ -160,7 +161,7 @@
 			};
 
 		if (title && in_date && in_name && in_time && in_duration && in_location &&  in_description ) {
-			var request = gapi.client.calendar.events.insert({'calendarId': 'ui47bj43j9ovbvrqi03jbsmc68@group.calendar.google.com','sendNotifications': true, 
+			var request = gapi.client.calendar.events.insert({'calendarId': GCAL_ID,'sendNotifications': true, 
 			'resource': event });
 			request.execute(function(event) {appendPre('Event created: ' + event.htmlLink);});
 			
@@ -222,7 +223,7 @@
 		</fieldset>
 	</form>
     
-	<iframe src="https://www.google.com/calendar/embed?src=ui47bj43j9ovbvrqi03jbsmc68%40group.calendar.google.com&ctz=America/Sao_Paulo" style="border: 0"
+	<iframe src="https://www.google.com/calendar/embed?src=scottnath.com_egim4s6u6q9u672aqmlu79o444%40group.calendar.google.com&ctz=America/New_York" style="border: 0"
 	width="800" height="600" frameborder="0" scrolling="no">
 	</iframe>
 
